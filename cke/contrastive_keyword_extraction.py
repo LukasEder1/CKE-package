@@ -1,12 +1,11 @@
 import string
 import nltk
-import utilities
 from tqdm import trange
-import sentence_importance
-from sentence_comparision import *
+import .sentence_importance
+from .sentence_comparision import *
 import pysbd
 from collections import Counter
-from utilities import * 
+from .utilities import * 
 import numpy as np
 
 def final_score(documents, changed_indices, new_indices, matched_dict, ranking, max_ngram,
