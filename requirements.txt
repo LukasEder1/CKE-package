@@ -13,5 +13,3 @@ summa
 keybert
 pysbd
 sumy
-nltk.download('punkt')
-nltk.download('stopwords')
