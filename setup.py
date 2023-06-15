@@ -23,9 +23,6 @@ setuptools.setup(
     description='Contrastive Keyword Extraction',
     long_description=ld,
     url='https://github.com/LukasEder1/CKE-package',
-    project_urls = {
-        "Bug Tracker": "https://github.com/LukasEder1/CKE-package/issues"
-    },
     license='MIT',
     packages=['cke'],
     include_package_data=True,
