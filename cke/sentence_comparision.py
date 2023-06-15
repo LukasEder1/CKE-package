@@ -138,8 +138,8 @@ def find_additions_deletions_ngrams(mono_additions, mono_deletions, a, b, ngram)
 
 def find_additions_deletions_max_ngram(a, b, max_ngram, symbols_to_remove, extra_stopwords=[]):
     
-    a = utilities.remove_punctuation(a[:-1], [","])
-    b = utilities.remove_punctuation(b[:-1], [","])
+    a = remove_punctuation(a[:-1], [","])
+    b = remove_punctuation(b[:-1], [","])
     
     # extract all single word additions
     mono_additions, mono_deletions = find_additions_deletions(a, b, extra_stopwords=extra_stopwords)
@@ -162,7 +162,7 @@ def find_additions_deletions_max_ngram(a, b, max_ngram, symbols_to_remove, extra
         additions += current_additions
         deletions += current_deletions
     
-    return utilities.remove_lower_ngrams(additions, max_ngram), utilities.remove_lower_ngrams(deletions, max_ngram)
+    return remove_lower_ngrams(additions, max_ngram), remove_lower_ngrams(deletions, max_ngram)
 
 def match_sentences_tfidf_weighted(document_a, document_b, threshold = 0.6, k=1, *args):
     
