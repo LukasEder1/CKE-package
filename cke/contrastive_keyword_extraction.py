@@ -1,7 +1,7 @@
 import string
 import nltk
 from tqdm import trange
-from .sentence_importance import *
+from .sentence_importance import yake_weighted_importance, yake_unweighted_importance, text_rank_importance
 from .sentence_comparision import *
 import pysbd
 from collections import Counter
