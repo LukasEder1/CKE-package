@@ -11,7 +11,7 @@ if os.path.isfile(reqs_path ):
     reqs = file.read().splitlines()
 
 with open("README.md", "r", encoding="utf-8") as file:
-  ld = f.read()
+  ld = file.read()
   
  
   
