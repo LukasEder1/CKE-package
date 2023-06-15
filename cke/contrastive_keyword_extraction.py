@@ -1,7 +1,7 @@
 import string
 import nltk
 from tqdm import trange
-import .sentence_importance
+from .sentence_importance import *
 from .sentence_comparision import *
 import pysbd
 from collections import Counter
@@ -9,7 +9,7 @@ from .utilities import *
 import numpy as np
 
 def final_score(documents, changed_indices, new_indices, matched_dict, ranking, max_ngram,
-                additions, removed_indices, deleted, combinator=utilities.alpha_combination, 
+                additions, removed_indices, deleted, combinator=alpha_combination, 
                 top_k=0, alpha_gamma=0.5, min_ngram = 1,
                 symbols_to_remove=string.punctuation, extra_stopwords=[]):
     
@@ -28,7 +28,7 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
     I_sprev = ranking[0]
     I_s = ranking[1]
     
-    former_contrastiveness, latter_contrastiveness = sentence_importance.contrastive_importance(documents[0], documents[-1])
+    former_contrastiveness, latter_contrastiveness = contrastive_importance(documents[0], documents[-1])
 
     # computed intermediate Keywords for contrastive KE between the current and prev Document Version    
     keywords = {}
@@ -90,7 +90,7 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
     for i in new_indices:
         
         # Compute the Dictonary of frequency for all ngrams up to "max_ngram" in new sentence
-        current_freqs = utilities.build_sentence_freqs_max_ngram(sentences_b[i], 
+        current_freqs = build_sentence_freqs_max_ngram(sentences_b[i], 
                                                        higher_ngram=max_ngram, lower_ngram=min_ngram,
                                                        symbols_to_remove=symbols_to_remove,
                                                        extra_stopwords=extra_stopwords)
@@ -109,7 +109,7 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
     for i in removed_indices:
         
         # Compute the Dictonary of frequency for all ngrams up to "max_ngram" in deleted sentence
-        current_freqs = utilities.build_sentence_freqs_max_ngram(sentences_a[i], 
+        current_freqs = build_sentence_freqs_max_ngram(sentences_a[i], 
                                                        higher_ngram=max_ngram, lower_ngram=min_ngram,
                                                        symbols_to_remove=symbols_to_remove,
                                                        extra_stopwords=extra_stopwords)
@@ -144,8 +144,8 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
 
 
 def extract_contrastive_keywords(documents, max_ngram, min_ngram=1, 
-                           importance_estimator= sentence_importance.text_rank_importance,
-                           combinator=utilities.alpha_combination, threshold=0.6, top_k=1, alpha_gamma=0.5, 
+                           importance_estimator= text_rank_importance,
+                           combinator=alpha_combination, threshold=0.6, top_k=1, alpha_gamma=0.5, 
                            matching_model='all-MiniLM-L6-v2', 
                            match_sentences =match_sentences_semantic_search, show_changes=False,
                            symbols_to_remove=[","], extra_stopwords=[]):
