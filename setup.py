@@ -10,6 +10,7 @@ if os.path.isfile(reqs_path ):
   with open(reqs_path) as file:
     reqs = file.read().splitlines()
 
+print(reqs)
 with open("READEME.md", "r", encoding="utf-8") as file:
   ld = f.read()
   
