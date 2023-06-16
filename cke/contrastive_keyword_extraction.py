@@ -143,7 +143,7 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
 
 
 
-def extract_contrastive_keywords(documents, max_ngram, min_ngram=1, 
+def extract_contrastive_keywords(document_a, document_b, max_ngram, min_ngram=1, 
                            importance_estimator= text_rank_importance,
                            combinator=alpha_combination, threshold=0.6, top_k=1, alpha_gamma=0.5, 
                            matching_model='all-MiniLM-L6-v2', 
@@ -151,6 +151,7 @@ def extract_contrastive_keywords(documents, max_ngram, min_ngram=1,
                            symbols_to_remove=[","], extra_stopwords=[]):
     
     
+    documents = [document_a, document_b]
     # rank all sentences in their respective version
     # available esitmators: text_rank_importance, yake_weighted_importance, yake_unweighted_importance 
     ranking = importance_estimator(documents)
