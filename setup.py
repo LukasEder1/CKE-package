@@ -22,7 +22,7 @@ setuptools.setup(
     author_email='lukaseder.el@protonmail.com',
     description='Contrastive Keyword Extraction',
     long_description=ld,
-    url='https://github.com/LukasEder1/CKE-package',
+    url='https://github.com/LukasEder1/ContrastiveKeywordExtraction/',
     license='MIT',
     packages=['cke'],
     include_package_data=True,
