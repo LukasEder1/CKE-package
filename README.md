@@ -135,7 +135,7 @@ combined_kws, former_kws, latter_kws = extract_contrastive_keywords(document_a, 
 
 #### Output
 
-#### Output: combined Keywords
+##### Combined Keywords
 ```python
 print(combined_kws)
 ```
@@ -153,7 +153,7 @@ print(combined_kws)
  'medallions': 0.047847894864559946}
 ```
 
-#### Output: former Keywords
+##### Former Keywords
 ```python
 print(former_kws)
 ```
@@ -171,7 +171,7 @@ print(former_kws)
  'tuesday saying': 0.09032079989587966}
 ```
 
-#### Output: latter Keywords
+##### Latter Keywords
 ```python
 print(latter_kws)
 ```
