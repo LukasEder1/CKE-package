@@ -153,7 +153,7 @@ def final_score(documents, changed_indices, new_indices, matched_dict, ranking, 
 
 def extract_contrastive_keywords(document_a, document_b, max_ngram=2, min_ngram=1, 
                            importance_estimator= text_rank_importance,
-                           combinator=alpha_combination, threshold=0.6, top_k=1, alpha_gamma=0.5, 
+                           combinator=alpha_combination, threshold=0.6, nump_splits=1, alpha_gamma=0.5, 
                            matching_model='all-MiniLM-L6-v2', 
                            match_sentences =match_sentences_semantic_search, show_changes=False,
                            symbols_to_remove=[","], extra_stopwords=[], num_keywords=10):
@@ -166,14 +166,14 @@ def extract_contrastive_keywords(document_a, document_b, max_ngram=2, min_ngram=
     
     # Perform Matching
     # matchers: semantic_search, weighted_tfidf
-    matched_dict, removed = match_sentences(documents[0], documents[-1],threshold, top_k, matching_model)
+    matched_dict, removed = match_sentences(documents[0], documents[-1],threshold, nump_splits, matching_model)
     
     
     # determine WHAT has changed
     # Using Myers algorithm
     changed_indices, new_indices, additions, deletions, matched_indices, unified_delitions = detect_changes(matched_dict, documents[0], documents[-1], 
                                         max_ngram=max_ngram, show_output=show_changes,
-                                        symbols_to_remove=symbols_to_remove, top_k=top_k,
+                                        symbols_to_remove=symbols_to_remove, top_k=nump_splits,
                                         extra_stopwords=extra_stopwords)
     
     
