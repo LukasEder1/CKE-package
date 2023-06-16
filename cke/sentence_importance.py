@@ -206,7 +206,7 @@ def yake_keyword_frequency(documents, ngram_size=3):
     number_of_documents = len(documents)
     seg = pysbd.Segmenter(language="en", clean=False)
     # dictonary of form: version -> keywords
-    keywords = keyword_extraction.extract_yake(documents)
+    keywords = extract_yake(documents)
     
     # init highlighter object
     highlighter = TextHighlighter(max_ngram_size = ngram_size)
@@ -251,7 +251,7 @@ def yake_weighted_keyword_frequency(documents, ngram_size=3):
     seg = pysbd.Segmenter(language="en", clean=False)
 
     # dictonary of form: version -> keywords
-    keywords = keyword_extraction.extract_yake(documents)
+    keywords = extract_yake(documents)
     
     # init highlighter object
     highlighter = TextHighlighter(max_ngram_size = ngram_size)
