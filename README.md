@@ -120,6 +120,72 @@ Parameters:
 
 * ``num_splits``: Maximum Number Sentence a Source Sentence can split into (default=1)
 
+### Example
+Using the first and the last revised version of the AP-News Article with id 17313 from the AP news-edits dataset ([Google Drive](https://drive.google.com/drive/folders/17a5S3liA0C91XbgnMBUQBo-NVb22Z9xf?usp=sharing))
+
+Also available in the demo notebook (using documents[17313])
+
+```python
+from cke import extract_contrastive_keywords
+
+document_a, document_b = documents[17313]
+
+combined_kws, former_kws, latter_kws = extract_contrastive_keywords(document_a, document_b, num_keywords=10, max_ngram=2)
+```
+
 #### Output
 
+#### Output: combined Keywords
+```python
+print(combined_kws)
+```
+
+```python
+{'state transportation': 0.16218195157227563,
+ 'transportation taxes': 0.16218195157227563,
+ 'new york': 0.11901325999183027,
+ 'records show': 0.11021500265104711,
+ 'york city': 0.09940959219076993,
+ 'city yellow': 0.09940959219076993,
+ 'taxes': 0.07831640607467383,
+ 'also sought': 0.06403374274208463,
+ 'attorneyclient privilege': 0.05739060614971311,
+ 'medallions': 0.047847894864559946}
+```
+
+#### Output: former Keywords
+```python
+print(former_kws)
+```
+
+```python
+{'attorneyclient privilege': 0.14622844020560088,
+ 'fbi agents': 0.11396681642987444,
+ 'fire mueller': 0.107559144093367,
+ 'dead': 0.09032079989587966,
+ 'furious president': 0.09032079989587966,
+ 'president blasted': 0.09032079989587966,
+ 'blasted displeasure': 0.09032079989587966,
+ 'displeasure early': 0.09032079989587966,
+ 'early tuesday': 0.09032079989587966,
+ 'tuesday saying': 0.09032079989587966}
+```
+
+#### Output: latter Keywords
+```python
+print(latter_kws)
+```
+
+```python
+{'state transportation': 0.1641493556133856,
+ 'transportation taxes': 0.1641493556133856,
+ 'new york': 0.12041330413087999,
+ 'records show': 0.11155200371377005,
+ 'york city': 0.10061551449904882,
+ 'city yellow': 0.10061551449904882,
+ 'taxes': 0.07926645022140402,
+ 'also sought': 0.0648105261203635,
+ 'medallions': 0.04842833023854907,
+ 'pleaded guilty': 0.0459996453501646}
+```
 
