@@ -189,3 +189,30 @@ print(latter_kws)
  'pleaded guilty': 0.0459996453501646}
 ```
 
+## Citation
+If you use CKE in your own work please consider citing the following Paper. The Paper can be found at [pdf](https://dl.acm.org/doi/10.1145/3583780.3614735).
+```
+Lukas Eder, Ricardo Campos and Adam Jatowt: Contrastive Keyword Extraction from Versioned Documents,
+Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM 2023),
+ACM Press, pp. 5026-5030 (2023)
+```
+
+```
+@inproceedings{10.1145/3583780.3614735,
+author = {Eder, Lukas and Campos, Ricardo and Jatowt, Adam},
+title = {Contrastive Keyword Extraction from Versioned Documents},
+year = {2023},
+isbn = {9798400701245},
+publisher = {Association for Computing Machinery},
+url = {https://doi.org/10.1145/3583780.3614735},
+doi = {10.1145/3583780.3614735},
+booktitle = {Proceedings of the 32nd ACM International Conference on Information and Knowledge Management},
+pages = {5026–5030},
+numpages = {5},
+keywords = {keyword extraction, comparative summarization, change analysis},
+location = {Birmingham, United Kingdom},
+series = {CIKM '23}
+}
+```
+
+
